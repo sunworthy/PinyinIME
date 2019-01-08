@@ -1,5 +1,4 @@
 # PinyinIME
-google 拼音输入法 android studio可编译
+android studio编译 google 拼音输入法
 
-
-使用带hide的android.jar进行编译,见https://github.com/anggrayudi/android-hidden-api
+使用带hide的android.jar(provided) 进行编译,见https://github.com/anggrayudi/android-hidden-api
