@@ -86,6 +86,7 @@ public class BalloonHint extends PopupWindow {
 
     private int mParentLocationInWindow[] = new int[2];
 
+
     public BalloonHint(Context context, View parent, int measureSpecMode) {
         super(context);
         mParent = parent;
@@ -397,8 +398,8 @@ public class BalloonHint extends PopupWindow {
                 return;
             }
 
-            int measuredWidth = mPaddingLeft + mPaddingRight;
-            int measuredHeight = mPaddingTop + mPaddingBottom;
+            int measuredWidth = getPaddingLeft() + getPaddingRight();
+            int measuredHeight = getPaddingTop() + getPaddingBottom();
             if (null != mIcon) {
                 measuredWidth += mIcon.getIntrinsicWidth();
                 measuredHeight += mIcon.getIntrinsicHeight();
@@ -416,7 +417,7 @@ public class BalloonHint extends PopupWindow {
             }
 
             int maxWidth = Environment.getInstance().getScreenWidth() -
-                    mPaddingLeft - mPaddingRight;
+                    getPaddingLeft() + getPaddingRight();
             if (measuredWidth > maxWidth) {
                 measuredWidth = maxWidth;
             }
@@ -439,13 +440,13 @@ public class BalloonHint extends PopupWindow {
                 mIcon.draw(canvas);
             } else if (null != mLabel) {
                 float labelMeasuredWidth = mPaintLabel.measureText(mLabel);
-                float x = mPaddingLeft;
-                x += (width - labelMeasuredWidth - mPaddingLeft - mPaddingRight) / 2.0f;
+                float x = getPaddingLeft();
+                x += (width - labelMeasuredWidth -  getPaddingLeft() + getPaddingRight() ) / 2.0f;
                 String labelToDraw = mLabel;
-                if (x < mPaddingLeft) {
-                    x = mPaddingLeft;
+                if (x < getPaddingLeft()) {
+                    x = getPaddingLeft();
                     labelToDraw = getLimitedLabelForDrawing(mLabel,
-                            width - mPaddingLeft - mPaddingRight);
+                            width -  getPaddingLeft() + getPaddingRight());
                 }
 
                 int fontHeight = mFmi.bottom - mFmi.top;

@@ -1217,8 +1217,10 @@ public class PinyinIME extends InputMethodService {
                             launchSettings();
                             break;
                         case 1:
-                            InputMethodManager.getInstance()
-                                    .showInputMethodPicker();
+//                            InputMethodManager.getInstance().showInputMethodPicker();
+                            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                            imm.showSoftInput(mOptionsDialog.getCurrentFocus(),InputMethodManager.SHOW_FORCED);
+
                             break;
                         }
                     }
