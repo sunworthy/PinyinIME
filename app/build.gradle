@@ -8,7 +8,7 @@ android {
     }
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 23
+        targetSdkVersion 26
         applicationId "com.android.inputmethod.pinyin"
 
         externalNativeBuild {
@@ -32,10 +32,9 @@ android {
     }
 }
 dependencies {
-//    compile 'com.anggrayudi:android-hidden-api:28.1'
-    compile 'com.android.support:appcompat-v7:28.0.0'
+    //    compile 'com.anggrayudi:android-hidden-api:28.1'
+    implementation 'com.android.support:appcompat-v7:28.0.0'
     //download from https://github.com/anggrayudi/android-hidden-api/tree/master/android-28
-    provided files('libs/android.jar')
-
+    compileOnly files('libs/android.jar')
 }
 
